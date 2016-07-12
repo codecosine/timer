@@ -1,6 +1,9 @@
-/**
- * Created by codecosine on 16-7-11.
- */
-export function getCount (state) {
-  return state.count
-}
+
+
+export const Events = (state) => {
+  return state.events;
+};
+// 获取当前激活 note
+export const activeEvent = (state) => {
+  return state.activeEvent;
+};

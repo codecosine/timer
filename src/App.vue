@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="app">
-      <Header></Header>
-      <TimeTree></TimeTree>
+      <Toolbar></Toolbar>
+      <Time-tree></Time-tree>
   </div>
 </template>
 
@@ -9,15 +9,25 @@
 
 <script>
 
-  import Header from './components/Header.vue'
-  import TimeTree from './components/TimeTree.vue'
+  import Toolbar from './components/Toolbar.vue'
+  import Timetree from './components/TimeTree.vue'
   import store from './vuex/store.js'
+  import { initStore } from './vuex/actions';
+
 
   export default {
     components: {
-      Header:Header,
-      TimeTree:TimeTree
+      Toolbar:Toolbar,
+      TimeTree:Timetree
     },
-    store:store
+    store:store,
+    vuex: {
+      actions: {
+        initStore
+      }
+    },
+    ready() {
+      this.initStore()
+    }
   }
 </script>

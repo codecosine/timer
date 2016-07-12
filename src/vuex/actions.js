@@ -1,9 +1,32 @@
-/**
- * Created by codecosine on 16-7-11.
- */
-// action 会收到 store 作为它的第一个参数
-// 既然我们只对事件的分发（dispatch 对象）感兴趣。（state 也可以作为可选项放入）
-// 我们可以利用 ES6 的解构（destructuring）功能来简化对参数的导入
-export const incrementCounter = function ({ dispatch, state }) {
-  dispatch('INCREMENT', 1)
+
+
+function makeAction(type) {
+  return ({ dispatch }, ...args) => dispatch(type, ...args);
 }
+
+const first = {
+  id: +new Date(),
+  title: '我的笔记',
+  content: '第一篇笔记内容'
+};
+
+// 模拟初始化数据
+const initData = {
+  events: [first],
+  activeEvent: first,
+  content:''
+
+};
+
+
+export const initStore = ({ dispatch }) => {
+  dispatch('INIT_STORE', initData);
+};
+// 更新当前activeNote对象
+export const updateActiveEvent = makeAction('SET_ACTIVE_EVENT');
+
+export const newEvent = makeAction('NEW_EVENT');
+
+// 删除一个note对象
+export const deleteEvent = makeAction('DELETE_EVENT');
+
