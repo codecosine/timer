@@ -1,31 +1,26 @@
 <template>
-    <div>
-        <header-component/>
-        <div class="jumbotron">
-          <h1>任务追踪</h1>
-          <p>
-            <strong>
-              <a v-link="'/time-entries'">创建一个任务</a>
-            </strong>
-          </p>
-        </div>
+    <div class = "container">
+      <ul class="nav bs-do">
+        <li>test1</li>
+        <li>test2</li>
+        <li>test3</li>
+        <li>test4</li>
 
-             <other-component/>
+      </ul>
+      <button @click='increment'>Increment +1</button>
+
     </div>
 </template>
 
 <script>
-    import HeaderComponent from './components/Header.vue'
-    import OtherComponent from './components/other.vue'
-    export default{
-        data(){
-            return{
-                msg:'hello vue'
-            }
-        },
-        components:{
-            'other-component':OtherComponent,
-            HeaderComponent,
+  import { incrementCounter } from '../vuex/actions'
+
+  export default{
+      vuex: {
+        actions: {
+          increment: incrementCounter
         }
+      }
+
     }
 </script>

@@ -15,8 +15,8 @@
 
   export default {
     components: {
-      Header,
-      TimeTree
+      Header:Header,
+      TimeTree:TimeTree
     },
     store:store
   }
