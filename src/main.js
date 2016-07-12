@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import App from './App';
-import Home from './components/Home.vue';
 
 import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
@@ -10,15 +9,15 @@ Vue.use(VueRouter);
 
 const router = new VueRouter();
 
-// 路由map
 router.map({
-  '/hello': {
-    component: Home,
-  },
+  '/index': {
+    component: App
+  }
 });
 
 router.redirect({
-  '*': '/home',
+  '*': '/index'
 });
 
 router.start(App, '#app');
+
