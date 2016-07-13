@@ -1,7 +1,7 @@
-var path = require('path')
-var config = require('../config')
-var utils = require('./utils')
-var projectRoot = path.resolve(__dirname, '../')
+var path = require('path');
+var config = require('../config');
+var utils = require('./utils');
+var projectRoot = path.resolve(__dirname, '../');
 
 module.exports = {
   entry: {
@@ -51,9 +51,18 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /\.less$/,
+        loader: "style!css!less"
+      },
+      {
+        test: /\.css$/, loader: "style!css"
+      },
+
+      {
         test: /\.json$/,
         loader: 'json'
       },
+
       {
         test: /\.html$/,
         loader: 'vue-html'

@@ -8,7 +8,6 @@
 
 
 <script>
-
   import Toolbar from './components/Toolbar.vue'
   import Timetree from './components/TimeTree.vue'
   import store from './vuex/store.js'
